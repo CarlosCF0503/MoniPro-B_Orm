@@ -4,10 +4,10 @@
 const MB_BETA_ORM = "https://monipro-b-orm.onrender.com";
 
 /**
- * Função centralizada para realizar pedidos ao backend Sequelize.
- * @param {string} endpoint - O caminho da rota (ex: '/login', '/perfil')
+ * Função centralizada para realizar pedidos ao backend.
+ * @param {string} endpoint - O caminho da rota (ex: '/auth/login', '/perfil')
  * @param {object} opcoes - Configurações do fetch (method, body, etc.)
- * @returns {Promise<object>} - A resposta JSON do servidor
+ * @returns {Promise<object>} - A resposta do servidor (garantida como objeto)
  */
 async function chamadaApi(endpoint, opcoes = {}) {
     // Tenta recuperar o token guardado no navegador
@@ -28,19 +28,37 @@ async function chamadaApi(endpoint, opcoes = {}) {
     const configuracao = { ...opcoes, headers: cabecalhos };
 
     try {
+        // Faz a requisição para a URL Base + Endpoint
         const resposta = await fetch(`${MB_BETA_ORM}${endpoint}`, configuracao);
 
-        // O Sequelize devolve erros em formato JSON amigável, então processamos sempre a resposta
-        const dados = await resposta.json();
+        // Verifica o tipo de conteúdo retornado pelo servidor
+        const contentType = resposta.headers.get("content-type");
+        let dados = {};
+
+        // Se a resposta for JSON, faz o parse normalmente
+        if (contentType && contentType.includes("application/json")) {
+            dados = await resposta.json();
+        } else {
+            // Se NÃO for JSON (ex: página HTML de erro 404 ou 500), 
+            // cria um objeto de erro manual para evitar o crash "Unexpected token '<'"
+            dados = { 
+                erro: true, 
+                mensagem: `Erro inesperado no servidor. A rota pode não existir (${resposta.status}).` 
+            };
+        }
 
         // Adicionamos o status HTTP ao objeto para facilitar validações específicas no frontend
         dados.statusHttp = resposta.status;
 
+        // Log de aviso no console caso a requisição não tenha sido sucesso (2xx)
+        if (!resposta.ok) {
+            console.warn(`Aviso de API: Status ${resposta.status} ao acessar ${endpoint}`);
+        }
+
         return dados;
     } catch (erro) {
-        console.error(`Erro no pedido para ${endpoint}:`, erro);
-        // Lança um erro padronizado para o bloco 'catch' dos outros scripts
-        throw new Error('Não foi possível conectar ao servidor. Verifique a sua ligação à internet.');
+        console.error(`Erro de rede no pedido para ${endpoint}:`, erro);
+        // Lança um erro padronizado para o bloco 'catch' dos outros scripts (ex: falha de internet, CORS ou servidor offline)
+        throw new Error('Não foi possível conectar ao servidor. Verifique se o backend está online.');
     }
-
 }
