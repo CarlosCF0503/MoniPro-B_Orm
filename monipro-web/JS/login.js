@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // Utilização da nossa API centralizada
-            const respostaApi = await chamadaApi('/login', {
+            const respostaApi = await chamadaApi('/auth/login', {
                 method: 'POST',
                 body: JSON.stringify({
                     identificador: identificador,
@@ -61,4 +61,5 @@ document.addEventListener('DOMContentLoaded', () => {
             showToast(erroDeRede.message, 'error');
         }
     });
+
 });
