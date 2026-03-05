@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (input.type === 'password') {
                     input.type = 'text';
-                    img.src = 'IMG/Icone_olho_aberto.png'; 
+                    img.src = 'IMG/Icone_olho.png'; 
                     img.alt = 'Esconder senha';
                 } else {
                     input.type = 'password';
