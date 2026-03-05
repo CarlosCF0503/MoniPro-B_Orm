@@ -1,7 +1,7 @@
 // JS/api.js
 
 // URL base do seu servidor. Se for testar localmente, pode alterar para "http://localhost:3000"
-const MB_BETA_ORM = "https://monipro-beta.onrender.com";
+const MB_BETA_ORM = "https://monipro-b-orm.onrender.com";
 
 /**
  * Função centralizada para realizar pedidos ao backend Sequelize.
@@ -42,4 +42,5 @@ async function chamadaApi(endpoint, opcoes = {}) {
         // Lança um erro padronizado para o bloco 'catch' dos outros scripts
         throw new Error('Não foi possível conectar ao servidor. Verifique a sua ligação à internet.');
     }
+
 }
