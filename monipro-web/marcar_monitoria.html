@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/base.css">
+    <link rel="stylesheet" href="CSS/marcar_monitoria.css">
+    <link rel="icon" href="IMG/MoniPro-mini.png">
+    <title>Agendar/Criar - MoniPro</title>
+</head>
+<body>
+<header>
+    <div class="logo"><a href="base.html"><img src="IMG/MoniPro_logo-menor.png" alt="Logo"></a></div>
+    <div class="header-actions">
+        <div class="header-icon perfil-link"><img src="IMG/Icone_Perfil.png" alt="Perfil"></div>
+        <div id="menu" class="header-icon"><img src="IMG/Menu_hamburguer.png" alt="Menu"></div>
+    </div>
+</header>
+
+<main>
+    <div class="titulo"><h1 id="titulo-pagina">MonitoriaService</h1></div>
+
+    <div class="areaCalendario">
+        <div class="calendario">
+            <div class="header">
+                <button id="mes-anterior">&lt;</button>
+                <h2 id="mes-ano">Mês Ano</h2>
+                <button id="proximo-mes">&gt;</button>
+            </div>
+            <table>
+                <thead>
+                <tr>
+                    <th>Dom</th><th>Seg</th><th>Ter</th><th>Qua</th><th>Qui</th><th>Sex</th><th>Sáb</th>
+                </tr>
+                </thead>
+                <tbody id="dias-calendario"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="areaMarcar" id="view-aluno">
+        <p>Monitores Disponíveis</p>
+        <div class="monitores" id="lista-monitores">
+            <p>A carregar monitores...</p>
+        </div>
+        <div id="marcar-agendamento" class="btn-acao">
+            <img src="IMG/+.png" alt="">
+            <p>Agendar MonitoriaService</p>
+        </div>
+    </div>
+
+    <div class="areaMarcar" id="view-monitor" style="display: none;">
+        <p>Criar Vaga de MonitoriaService</p>
+        <div class="form-monitor">
+            <label for="monitoria-horario">Horário (ex: 14:00):</label>
+            <input type="time" id="monitoria-horario" required>
+
+            <label for="monitoria-local">Local (ex: Lab 3):</label>
+            <input type="text" id="monitoria-local" placeholder="Laboratório 3, Bloco C" required>
+
+            <label for="monitoria-descricao">Descrição (Opcional):</label>
+            <textarea id="monitoria-descricao" placeholder="Ex: Foco em SQL Joins"></textarea>
+        </div>
+        <div id="criar-monitoria" class="btn-acao">
+            <img src="IMG/+.png" alt="">
+            <p>Criar Vaga</p>
+        </div>
+    </div>
+</main>
+
+<div id="toast-container"></div>
+
+<script src="JS/toast.js"></script>
+<script src="JS/api.js"></script>
+<script src="JS/base.js"></script>
+<script src="JS/calendario.js"></script>
+<script src="JS/marcar_monitoria.js"></script>
+</body>
+</html>

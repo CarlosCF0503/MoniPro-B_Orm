@@ -1,0 +1,79 @@
+/* CSS/cadastro.css */
+
+.text1 {
+    color: #071E3D;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    background-color: #f0f4ff;
+    border: 2px solid #071E3D;
+    border-radius: 10px;
+    padding: 5px 15px;
+    height: 55px;
+    width: 100%;
+    position: relative;
+}
+
+.input-group input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+    color: #071E3D;
+}
+
+.input-group-senha {
+    padding-right: 50px; /* Espaço para o ícone do olho */
+}
+
+.olho {
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.olho img {
+    width: 25px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.olho:hover img {
+    opacity: 1;
+}
+
+.link-voltar {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.link-voltar a {
+    color: #1F4287;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.link-voltar a:hover {
+    text-decoration: underline;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

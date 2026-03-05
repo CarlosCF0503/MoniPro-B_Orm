@@ -1,0 +1,298 @@
+/* CSS/perfil.css */
+
+.perfil_informacao {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -47%);
+    width: 500px;
+    max-width: 95%;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    /* GARANTE QUE A TELA ROLA SE O CONTEÚDO FOR GRANDE */
+    max-height: 85vh;
+    overflow-y: auto;
+
+    background-color: #FFFAFA;
+    color: #071E3D;
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+    transition: left 0.3s ease-in-out;
+}
+
+.perfil_informacao.mudar {
+    left: 30%;
+}
+
+.perfil_informacao > img {
+    width: 200px;
+    border-radius: 50%;
+    border: 5px solid #071E3D;
+}
+
+.perfil_informacao h1 {
+    margin-top: 10px;
+}
+
+.perfil_informacao > p {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}
+
+.perfil_informacao > p img {
+    width: 25px;
+    margin-left: 5px;
+}
+
+.linha {
+    width: 90%;
+    height: 3px;
+    background-color: #071E3D;
+    border-radius: 15px;
+    margin: 10px 0;
+}
+
+.informacoes {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 0 10%;
+}
+
+.informacoes span {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.informacoes span .icone {
+    width: 25px;
+    flex-shrink: 0;
+}
+
+.informacoes span .icone img {
+    width: 100%;
+}
+
+.linha-interativa {
+    position: relative;
+}
+
+#abrir_c {
+    position: absolute;
+    right: 0;
+    padding: 5px 10px;
+    background-color: #071E3D;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#abrir_c:hover {
+    background-color: #1F4287;
+    transform: scale(1.05);
+}
+
+#area_certificados {
+    position: fixed;
+    top: 27%;
+    left: 70%;
+    transform: translate(-50%, -50%) scale(0);
+
+    width: 500px;
+    max-width: 95%;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    background-color: #FFFAFA;
+    color: #071E3D;
+    border-radius: 20px;
+
+    visibility: hidden;
+    transition: transform 0.3s ease, visibility 0.3s;
+}
+
+#area_certificados.aparecer {
+    transform: translate(-50%, -50%) scale(1);
+    visibility: visible;
+}
+
+.titulo {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    margin-bottom: 15px;
+}
+
+#certificado {
+    height: auto;
+    background-color: beige;
+    width: 90%;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 15px;
+    gap: 10px;
+}
+
+#certificado .icone {
+    height: 40px;
+    width: 40px;
+    flex-shrink: 0;
+}
+
+#certificado .icone img {
+    height: 100%;
+}
+
+#certificado span {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+#certificado a img {
+    width: 100%;
+}
+
+#certificado a {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+}
+
+/* ========================================================================= */
+/* --- ESTILOS PARA LISTAS DE PERFIL --- */
+/* ========================================================================= */
+.lista-container {
+    width: 100%;
+    padding: 0 10%;
+    margin-top: 10px;
+}
+
+.lista-container h2 {
+    font-size: 20px;
+    color: #071E3D;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.lista-itens {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.lista-item {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.lista-item-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.lista-item-info p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.lista-item-info strong {
+    font-size: 16px;
+    color: #071E3D;
+}
+
+.status-pendente {
+    color: #FFA500;
+    font-weight: bold;
+}
+
+.status-realizado {
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* ========================================================================= */
+/* --- ESTILOS PARA BOTÃO DE CANCELAR --- */
+/* ========================================================================= */
+.btn-cancelar {
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    background-color: #FF0000;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-cancelar:hover {
+    background-color: #D8000C;
+}
+
+.btn-cancelar:active {
+    transform: scale(0.95);
+}
+
+/* ========================================================================= */
+/* --- RESPONSIVIDADE (Telemóvel) --- */
+/* ========================================================================= */
+@media (max-width: 768px) {
+    .perfil_informacao,
+    #area_certificados {
+        position: static;
+        transform: none;
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .perfil_informacao.mudar {
+        left: 50%;
+    }
+
+    #area_certificados {
+        visibility: visible;
+        display: none;
+    }
+
+    #area_certificados.aparecer {
+        display: flex;
+        transform: none;
+    }
+
+    .perfil_informacao > img {
+        width: 150px;
+    }
+
+    #certificado span {
+        transform: none;
+    }
+}
